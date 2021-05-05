@@ -4,7 +4,7 @@ import "./styles.css";
 export default function App() {
   return (
     <ChakraProvider>
-      <Button colorScheme="teal">ボタン</Button>
+      <Button colorScheme="blue">ボタン</Button>
     </ChakraProvider>
   );
 }
