@@ -1,7 +1,7 @@
 import { useDisclosure } from "@chakra-ui/hooks";
 import { Box, Flex, Heading, Link } from "@chakra-ui/layout";
 import { memo, useCallback, VFC } from "react";
-import { useHistory } from "react-router";
+import { useHistory, useLocation } from "react-router";
 import { MenuIconButton } from "../../atoms/button/MenuIconButton";
 import { MenuDrawer } from "../../molecules/MenuDrawer";
 
@@ -12,6 +12,8 @@ export const Header: VFC = memo(() => {
     const onClickHome = useCallback(() => history.push("/home"), []);
     const onClickUserManagement = useCallback(() => history.push("/home/user_management"), []);
     const onClickSetting = useCallback(() => history.push("/home/setting"), []);
+
+    const location = useLocation();
 
     return (
         <>
@@ -49,7 +51,7 @@ export const Header: VFC = memo(() => {
                 justify="space-between"
                 padding={{ base: 1, md: 2 }}
             >
-                <Heading as="h2" fontSize={{ base: "xs", md: "sm" }}>サブヘッダ</Heading>
+                <Heading as="h2" fontSize={{ base: "xs", md: "sm" }}>現在のURLパス: {location.pathname}</Heading>
             </Flex>
         </>
     )
